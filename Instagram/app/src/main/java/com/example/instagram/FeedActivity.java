@@ -21,66 +21,12 @@ public class FeedActivity extends AppCompatActivity {
 
     public static final String TAG = "FeedActivity";
 
-    private PostAdapter adapter;
-    private List<Post> posts;
-
-    private RecyclerView rvPosts;
-    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
-
-        posts = new ArrayList<>();
-        rvPosts = findViewById(R.id.rvPosts);
-        swipeRefreshLayout = findViewById(R.id.swipeContainer);
-
-        adapter = new PostAdapter(this, posts);
-        rvPosts.setAdapter(adapter);
-        rvPosts.setLayoutManager(new LinearLayoutManager(this));
-
-        queryPosts();
-
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                refreshPosts();
-            }
-        });
-
-        swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
     }
 
-    private void queryPosts() {
-        // specify what type of data we want to query - Post.class
-        ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
-        // include data referred by user key
-        query.include(Post.KEY_USER);
-        // limit query to latest 20 items
-        query.setLimit(20);
-        // order posts by creation date (newest first)
-        query.addDescendingOrder("createdAt");
-        // start an asynchronous call for posts
-        query.findInBackground(new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> _posts, ParseException e) {
-                if (e != null) {
-                    Log.e(TAG, "Fail getting posts", e);
-                    return;
-                }
-                posts.addAll(_posts);
-                adapter.notifyDataSetChanged();
-            }
-        });
-    }
 
-    private void refreshPosts() {
-        posts.clear();
-        queryPosts();
-        swipeRefreshLayout.setRefreshing(false);
-    }
 }

@@ -82,7 +82,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         private void openDetails() {
             int position = getAdapterPosition();
-            if(position != RecyclerView.NO_POSITION){
+            if (position != RecyclerView.NO_POSITION) {
                 Intent intent = new Intent(context, PostDetailsActivity.class);
                 intent.putExtra(Post.class.getSimpleName(), post.get(position));
                 context.startActivity(intent);

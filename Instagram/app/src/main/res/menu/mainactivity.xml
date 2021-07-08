@@ -11,10 +11,4 @@
         app:showAsAction="never"
         />
 
-    <item
-        android:id="@+id/action_feed"
-        android:title="Feed"
-        app:showAsAction="never"
-        />
-
 </menu>
