@@ -167,6 +167,11 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
+    private void feed(){
+        Intent intent = new Intent(this, FeedActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode,resultCode,data);
@@ -195,6 +200,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.action_logout) {
             logout();
+            return true;
+        }
+        if(item.getItemId() == R.id.action_feed){
+            feed();
             return true;
         }
         return super.onOptionsItemSelected(item);
