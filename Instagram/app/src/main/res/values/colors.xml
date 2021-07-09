@@ -8,5 +8,16 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     
-    <color name="colorPrimary">@color/purple_500</color>
+
+
+    <color name="instagram_white">#FFFFFF</color>
+    <color name="instagram_dark_background">#0E0E0E</color>
+    <color name="instagram_g">#969696</color>
+    <color name="instagram_g2">#282828</color>
+    <color name="instagram_g3">#363636</color>
+    <color name="instagram_blue2">#405DE6</color>
+    <color name="instagram_blue">#458eff</color>
+    <color name="instagram_red">#E1306C</color>
+
+
 </resources>

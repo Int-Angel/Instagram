@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".PostDetailsActivity">
+    android:layout_margin="8dp"
+    tools:context=".fragments.PostDetailsFragment">
 
-
-    <TextView
+   <!-- <TextView
         android:id="@+id/tvUsernameDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,12 +29,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         tools:text="trying to look hipster" />
+
     <TextView
         android:id="@+id/tvTimeDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:gravity="right"
-        tools:text="a minute ago" />
+        tools:text="a minute ago" />-->
 
 </LinearLayout>

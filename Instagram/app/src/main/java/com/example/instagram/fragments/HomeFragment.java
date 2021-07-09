@@ -20,6 +20,7 @@ import com.example.instagram.models.Post;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,6 +79,9 @@ public class HomeFragment extends Fragment {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         // include data referred by user key
         query.include(Post.KEY_USER);
+
+        //query.whereEqualTo(Post.KEY_USER, ParseUser.getCurrentUser());
+
         // limit query to latest 20 items
         query.setLimit(20);
         // order posts by creation date (newest first)

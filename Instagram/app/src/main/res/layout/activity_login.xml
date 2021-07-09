@@ -7,48 +7,66 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    <TextView
-        android:id="@+id/tvTitleLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="125dp"
-        android:layout_marginTop="10dp"
-        android:text="Login"
-        android:textStyle="bold"
-        android:textSize="30sp"/>
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/insta_letters" />
 
 
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="54dp"
-        android:ems="10"
+        android:layout_height="50dp"
+        android:layout_below="@+id/imageView"
+
+
+        android:layout_marginTop="0dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp"
+        android:hint="  Username"
         android:inputType="textPersonName"
-        android:hint="Username" />
+
+        android:background="@drawable/login_et"
+        android:textColorHint="@color/instagram_g"
+
+        />
 
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/etUsername"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="27dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="Password"/>
 
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp"
+        android:inputType="textPassword"
+        android:hint="   Password"
+
+        android:background="@drawable/login_et"
+        android:textColorHint="@color/instagram_g"/>
+
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/etPassword"
+
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp"
+        android:text="Login"
+/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
 
         android:layout_centerHorizontal="true"
@@ -56,20 +74,21 @@
 
         >
 
-        <Button
-            android:id="@+id/btnLogin"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login" />
+            android:text="Don't have an account?"/>
+
 
         <Button
             android:id="@+id/btnSingUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SingUp"
+            android:text="Sing Up"
             android:background="@android:color/transparent"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/instagram_blue"/>
     </LinearLayout>
+
 
 
 

@@ -4,16 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvUsernamePost"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:text="rahul" />
+        android:layout_margin="8dp"
+        >
+
+        <ImageView
+            android:id="@+id/ivUserPost"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icon"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/tvUsernamePost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="justinKan"
+            android:layout_toEndOf="@+id/ivUserPost"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="7dp"
+            />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/more"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            />
+
+
+    </RelativeLayout>
+
 
     <ImageView
         android:id="@+id/ivImagePost"
@@ -22,10 +53,75 @@
         android:scaleType="centerCrop"
         tools:srcCompat="@tools:sample/avatars" />
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <ImageButton
+            android:id="@+id/btnHeartPost"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/heart"
+            android:backgroundTint="@android:color/transparent"
+
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            />
+
+        <ImageButton
+            android:id="@+id/btnCommentPost"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/comment_white"
+            android:backgroundTint="@android:color/transparent"
+
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/btnHeartPost"
+            />
+
+        <ImageButton
+            android:id="@+id/btnDirectPost"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:src="@drawable/direct_white"
+
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/btnCommentPost"
+            android:layout_marginTop="-4dp"
+            android:layout_marginStart="-4dp"
+            />
+
+        <ImageButton
+            android:id="@+id/btnSavePost"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/save"
+            android:backgroundTint="@android:color/transparent"
+
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+
+            />
+
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/tvDescriptionPost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        tools:text="trying to look hipster" />
+        tools:text="trying to look hipster"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        />
+
 </LinearLayout>
