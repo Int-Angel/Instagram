@@ -9,13 +9,44 @@
     tools:context=".PostDetailsActivity">
 
 
-    <TextView
-        android:id="@+id/tvUsernameDetails"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:text="rahul" />
+        android:layout_margin="8dp"
+        >
+
+        <ImageView
+            android:id="@+id/ivUserDetails"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icon"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/tvUsernameDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="justinKan"
+            android:layout_toEndOf="@+id/ivUserDetails"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="7dp"
+            />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/more"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            />
+
+
+    </RelativeLayout>
+
 
     <ImageView
         android:id="@+id/ivImageDetails"
@@ -24,18 +55,106 @@
         android:scaleType="centerCrop"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/tvDescriptionDetails"
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        tools:text="trying to look hipster" />
+        android:orientation="horizontal"
+        >
+
+        <ImageButton
+            android:id="@+id/btnHeartDetails"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/heart"
+            android:backgroundTint="@android:color/transparent"
+
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            />
+
+        <ImageButton
+            android:id="@+id/btnCommentPost"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/comment_white"
+            android:backgroundTint="@android:color/transparent"
+
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/btnHeartDetails"
+            />
+
+        <ImageButton
+            android:id="@+id/btnDirectDetails"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:src="@drawable/direct_white"
+
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/btnCommentPost"
+            android:layout_marginTop="-4dp"
+            android:layout_marginStart="-4dp"
+            />
+
+        <ImageButton
+            android:id="@+id/btnSaveDetails"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/save"
+            android:backgroundTint="@android:color/transparent"
+
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvUsernameDetails2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+
+            android:layout_marginBottom="8dp"
+            android:textStyle="bold"
+            tools:text="justinKan" />
+
+        <TextView
+            android:id="@+id/tvDescriptionDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            tools:text="trying to look hipster"
+
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="8dp"
+            />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/tvTimeDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:gravity="right"
-        tools:text="a minute ago" />
+        tools:text="trying to look hipster"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textSize="9sp"
+        android:textColor="@color/instagram_g"
+        />
 
 </LinearLayout>

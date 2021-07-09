@@ -27,4 +27,12 @@
             @drawable/splash
         </item>
     </style>
+
+    <style name="ButtonStlye123" parent="android:style/Widget.Button">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/white</item>
+
+        <item name="android:background">@drawable/change_image_button</item>
+    </style>
+
 </resources>

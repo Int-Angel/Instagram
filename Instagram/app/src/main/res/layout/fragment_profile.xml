@@ -1,14 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/ivProfileImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="27dp"
+        android:src="@drawable/icon" />
     <TextView
+        android:id="@+id/tvUsernameProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/ivProfileImage"
+        android:layout_alignStart="@+id/ivProfileImage"
+        android:layout_alignEnd="@+id/ivProfileImage"
+
+        android:layout_marginTop="4dp"
+
+        android:gravity="center"
+
+        android:textStyle="bold"
+        android:text="justinKan"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/ButtonStlye123"
+        android:id="@+id/btnChangeImage"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp"
+        android:layout_below="@+id/tvUsernameProfile"
+        android:layout_marginTop="12dp"
+
+        android:textStyle="bold"
+
+        android:text="Change Profile Image"
+
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUserPosts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+        android:layout_below="@+id/btnChangeImage"
+        android:layout_marginTop="5dp"
+        />
+
+    <TextView
+        android:id="@+id/tvPosts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_toEndOf="@+id/ivProfileImage"
+        android:layout_alignParentTop="true"
+
+
+        android:layout_marginTop="75dp"
+
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="0"
+        />
+
+    <TextView
+        android:id="@+id/tvPostsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_toEndOf="@+id/ivProfileImage"
+        android:layout_below="@+id/tvPosts"
+
+
+        android:layout_marginTop="-1dp"
+
+        android:gravity="center"
+        android:textSize="15sp"
+        android:text="Posts"
+        />
+</RelativeLayout>

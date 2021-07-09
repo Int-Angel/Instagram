@@ -7,40 +7,37 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.example.instagram.PostDetailsActivity;
 import com.example.instagram.R;
 import com.example.instagram.models.Post;
 import com.parse.ParseFile;
-import com.parse.ParseUser;
 
 import java.util.List;
 
-public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
+public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.ViewHolder> {
 
     private List<Post> post;
     private Context context;
 
-    public PostAdapter(Context context, List<Post> post) {
+    public ProfilePostAdapter(Context context, List<Post> post) {
         this.post = post;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_post, parent, false);
-        return new ViewHolder(view);
+    public ProfilePostAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_post_image, parent, false);
+        return new ProfilePostAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PostAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProfilePostAdapter.ViewHolder holder, int position) {
         holder.bind(post.get(position));
     }
 
@@ -51,48 +48,28 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private TextView tvUsernamePost;
-        private ImageView ivImagePost;
-        private TextView tvDescriptionPost;
-        private TextView tvUsernamePost2;
-        private TextView tvTimePost;
-        private ImageView ivProfileImage;
+        private ImageView ivPostImageUser;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            tvUsernamePost = itemView.findViewById(R.id.tvUsernamePost);
-            ivImagePost = itemView.findViewById(R.id.ivImagePost);
-            tvDescriptionPost = itemView.findViewById(R.id.tvDescriptionPost);
-            tvUsernamePost2 = itemView.findViewById(R.id.tvUsernamePost2);
-            tvTimePost = itemView.findViewById(R.id.tvTimePost);
-            ivProfileImage = itemView.findViewById(R.id.ivUserPost);
+            ivPostImageUser = itemView.findViewById(R.id.ivPostImageUser);
 
             itemView.setOnClickListener(this);
         }
 
         public void bind(Post post) {
-            tvUsernamePost.setText(post.getUser().getUsername());
-            tvDescriptionPost.setText(post.getDescription());
-            tvUsernamePost2.setText(post.getUser().getUsername());
-
-            tvTimePost.setText(post.getCalculatedTimeAgo());
-
-            Glide.with(context)
-                    .load(post.getUser().getParseFile("image").getUrl())
-                    .transform(new RoundedCorners(200))
-                    .into(ivProfileImage);
 
             ParseFile image = post.getImage();
             if (image != null) {
-                ivImagePost.setVisibility(View.VISIBLE);
+                ivPostImageUser.setVisibility(View.VISIBLE);
                 Glide.with(context)
                         .load(image.getUrl())
-                        .into(ivImagePost);
+                        .into(ivPostImageUser);
 
             } else {
                 //Toast.makeText(context, "NO IMAGE", Toast.LENGTH_SHORT).show();
-                ivImagePost.setVisibility(View.GONE);
+                ivPostImageUser.setVisibility(View.GONE);
             }
         }
 

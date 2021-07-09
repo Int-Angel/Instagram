@@ -80,8 +80,6 @@ public class HomeFragment extends Fragment {
         // include data referred by user key
         query.include(Post.KEY_USER);
 
-        //query.whereEqualTo(Post.KEY_USER, ParseUser.getCurrentUser());
-
         // limit query to latest 20 items
         query.setLimit(20);
         // order posts by creation date (newest first)
