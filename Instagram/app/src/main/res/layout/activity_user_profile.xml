@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserProfileActivity">
+
+    <ImageView
+        android:id="@+id/ivProfileImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="27dp"
+        android:src="@drawable/icon" />
+    <TextView
+        android:id="@+id/tvUsernameProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/ivProfileImage"
+        android:layout_alignStart="@+id/ivProfileImage"
+        android:layout_alignEnd="@+id/ivProfileImage"
+
+        android:layout_marginTop="4dp"
+
+        android:gravity="center"
+
+        android:textStyle="bold"
+        android:text="justinKan"
+        />
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/instagram_g"
+        android:layout_below="@+id/ivProfileImage"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUserPosts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_below="@+id/ivProfileImage"
+        android:layout_marginTop="5dp"
+        />
+
+    <TextView
+        android:id="@+id/tvPosts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_toEndOf="@+id/ivProfileImage"
+        android:layout_alignParentTop="true"
+
+
+        android:layout_marginTop="75dp"
+
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="0"
+        />
+
+    <TextView
+        android:id="@+id/tvPostsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_toEndOf="@+id/ivProfileImage"
+        android:layout_below="@+id/tvPosts"
+
+
+        android:layout_marginTop="-1dp"
+
+        android:gravity="center"
+        android:textSize="15sp"
+        android:text="Posts"
+        />
+</RelativeLayout>

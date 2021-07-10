@@ -1,5 +1,6 @@
 package com.example.instagram.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -28,6 +29,10 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
+    public interface HomeFragmentListener {
+        void openProfileUser(ParseUser user);
+    }
+
     private final static String TAG = "HomeFragment";
 
     private PostAdapter adapter;
@@ -35,6 +40,8 @@ public class HomeFragment extends Fragment {
 
     private RecyclerView rvPosts;
     private SwipeRefreshLayout swipeRefreshLayout;
+
+    private HomeFragmentListener listener;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -55,7 +62,12 @@ public class HomeFragment extends Fragment {
         rvPosts = view.findViewById(R.id.rvPosts);
         swipeRefreshLayout = view.findViewById(R.id.swipeContainer);
 
-        adapter = new PostAdapter(getContext(), posts);
+        adapter = new PostAdapter(getContext(), posts, new PostAdapter.IPostAdapter() {
+            @Override
+            public void openUserProfileListener(ParseUser user) {
+                listener.openProfileUser(user);
+            }
+        });
         rvPosts.setAdapter(adapter);
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -102,5 +114,22 @@ public class HomeFragment extends Fragment {
         posts.clear();
         queryPosts();
         swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof HomeFragmentListener) {
+            listener = (HomeFragmentListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement Fragment new task Listener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
     }
 }

@@ -40,7 +40,7 @@ import com.parse.SaveCallback;
 import java.io.File;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements HomeFragment.HomeFragmentListener {
 
     private static final String TAG = "MainActivity";
 
@@ -106,5 +106,12 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void openProfileUser(ParseUser user) {
+        Intent intent = new Intent(this, UserProfileActivity.class);
+        intent.putExtra("user",user);
+        startActivity(intent);
     }
 }

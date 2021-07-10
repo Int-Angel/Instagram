@@ -24,12 +24,18 @@ import java.util.List;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
+    public interface IPostAdapter {
+        void openUserProfileListener(ParseUser user);
+    }
+
     private List<Post> post;
     private Context context;
+    private IPostAdapter iPostAdapter;
 
-    public PostAdapter(Context context, List<Post> post) {
+    public PostAdapter(Context context, List<Post> post, IPostAdapter iPostAdapter) {
         this.post = post;
         this.context = context;
+        this.iPostAdapter = iPostAdapter;
     }
 
     @NonNull
@@ -58,8 +64,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         private TextView tvTimePost;
         private ImageView ivProfileImage;
 
+        private Post bindedPost;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
 
             tvUsernamePost = itemView.findViewById(R.id.tvUsernamePost);
             ivImagePost = itemView.findViewById(R.id.ivImagePost);
@@ -68,10 +77,27 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             tvTimePost = itemView.findViewById(R.id.tvTimePost);
             ivProfileImage = itemView.findViewById(R.id.ivUserPost);
 
-            itemView.setOnClickListener(this);
+            ivImagePost.setOnClickListener(this);
+            tvUsernamePost.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openUserProfile();
+                }
+            });
+            ivProfileImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openUserProfile();
+                }
+            });
+        }
+
+        private void openUserProfile() {
+            iPostAdapter.openUserProfileListener(bindedPost.getUser());
         }
 
         public void bind(Post post) {
+            bindedPost = post;
             tvUsernamePost.setText(post.getUser().getUsername());
             tvDescriptionPost.setText(post.getDescription());
             tvUsernamePost2.setText(post.getUser().getUsername());
