@@ -93,7 +93,7 @@ public class ProfileFragment extends Fragment {
 
     }
 
-    private void loadProfileImage(){
+    private void loadProfileImage() {
         Glide.with(getContext())
                 .load(ParseUser.getCurrentUser().getParseFile("image").getUrl())
                 .transform(new RoundedCorners(200))

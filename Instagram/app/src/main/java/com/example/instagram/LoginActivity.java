@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
-        if(ParseUser.getCurrentUser() != null){
+        if (ParseUser.getCurrentUser() != null) {
             goMainActivity();
         }
 
@@ -67,32 +67,32 @@ public class LoginActivity extends AppCompatActivity {
                 new ActivityResultCallback<ActivityResult>() {
                     @Override
                     public void onActivityResult(ActivityResult result) {
-                        if(result.getResultCode() == Activity.RESULT_OK){
+                        if (result.getResultCode() == Activity.RESULT_OK) {
                             Intent data = result.getData();
-                            Log.i(TAG,data.getExtras().getString("username"));
+                            Log.i(TAG, data.getExtras().getString("username"));
                             //Toast.makeText(LoginActivity.this, data.getExtras().getString("username"),Toast.LENGTH_LONG).show();
-                            signUpUser(data.getExtras().getString("username"),data.getExtras().getString("password"));
+                            signUpUser(data.getExtras().getString("username"), data.getExtras().getString("password"));
                         }
                     }
                 });
     }
 
-    private void loginUser(String username, String password){
+    private void loginUser(String username, String password) {
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {
-                if(e != null){
-                    Log.e(TAG,"Issue with login", e);
-                    Toast.makeText(LoginActivity.this, "Fail login!",Toast.LENGTH_SHORT).show();
+                if (e != null) {
+                    Log.e(TAG, "Issue with login", e);
+                    Toast.makeText(LoginActivity.this, "Fail login!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 goMainActivity();
-                Toast.makeText(LoginActivity.this, "Success login!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Success login!", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void signUpUser(String username, String password){
+    private void signUpUser(String username, String password) {
         ParseUser user = new ParseUser();
         user.setUsername(username);
         user.setPassword(password);
@@ -100,23 +100,23 @@ public class LoginActivity extends AppCompatActivity {
         user.signUpInBackground(new SignUpCallback() {
             @Override
             public void done(ParseException e) {
-                if(e != null){
-                    Log.e(TAG,"Issue with login", e);
-                    Toast.makeText(LoginActivity.this, "Fail SignUp!",Toast.LENGTH_SHORT).show();
+                if (e != null) {
+                    Log.e(TAG, "Issue with login", e);
+                    Toast.makeText(LoginActivity.this, "Fail SignUp!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 goMainActivity();
-                Toast.makeText(LoginActivity.this, "Success SignUp!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Success SignUp!", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void goSignUpActivity(){
+    private void goSignUpActivity() {
         Intent intent = new Intent(this, SignUpActivity.class);
         singUpLauncher.launch(intent);
     }
 
-    private void goMainActivity(){
+    private void goMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();

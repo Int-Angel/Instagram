@@ -42,11 +42,11 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-    private void signUpUser(String username, String password){
+    private void signUpUser(String username, String password) {
         Intent data = new Intent();
         data.putExtra("username", username);
         data.putExtra("password", password);
-        setResult(Activity.RESULT_OK,data);
+        setResult(Activity.RESULT_OK, data);
         finish();
     }
 

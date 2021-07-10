@@ -44,10 +44,10 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.Home
 
     private static final String TAG = "MainActivity";
 
-    final FragmentManager fragmentManager = getSupportFragmentManager();
-    final HomeFragment homeFragment = new HomeFragment();
-    final ComposeFragment composeFragment = new ComposeFragment();
-    final ProfileFragment profileFragment = new ProfileFragment();
+    private final FragmentManager fragmentManager = getSupportFragmentManager();
+    private final HomeFragment homeFragment = new HomeFragment();
+    private final ComposeFragment composeFragment = new ComposeFragment();
+    private final ProfileFragment profileFragment = new ProfileFragment();
 
     private BottomNavigationView bottomNavigationView;
 
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.Home
         startActivity(intent);
         finish();
     }
-    
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.Home
     @Override
     public void openProfileUser(ParseUser user) {
         Intent intent = new Intent(this, UserProfileActivity.class);
-        intent.putExtra("user",user);
+        intent.putExtra("user", user);
         startActivity(intent);
     }
 }
